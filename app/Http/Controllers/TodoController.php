@@ -28,20 +28,10 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function create(Request $request)
+    {   
+        $data = ['text'=>$request->text, 'user_id'=>$request->user_id, 'completed'=>$request->completed];
+        return $this->todo->createAll($data);
     }
 
     /**
@@ -52,7 +42,7 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->todo->showAll($id);
     }
 
     /**
@@ -61,21 +51,10 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function edit(Request $request, $id)
+    {   
+        $data = ['text'=>$request->text, 'user_id'=>$request->user_id, 'completed'=>$request->completed];
+        return $this->todo->updateAll($id, $data);
     }
 
     /**
@@ -86,6 +65,6 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->todo->deleteAll($id);
     }
 }

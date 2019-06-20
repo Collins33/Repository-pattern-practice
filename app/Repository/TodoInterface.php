@@ -7,12 +7,12 @@ interface TodoInterface
   // include all functions that will be implementes
   public function getAll();
 
-  public function getById($id);
+  public function showAll($id);
 
-  public function create(array $attributes);
+  public function createAll(array $attributes);
 
-  public function update($id, array $attributes);
+  public function updateAll($id, array $attributes);
 
-  public function delete($id);
+  public function deleteAll($id);
 
 }

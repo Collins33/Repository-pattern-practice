@@ -19,4 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'v1'], function(){
     Route::get('todos', 'TodoController@index');
+    Route::get('todos/{id}', 'TodoController@show');
+    Route::put('todos/{id}','TodoController@edit');
+    Route::delete('todos/{id}','TodoController@destroy');
+    Route::post('todos', 'TodoController@create');
 });

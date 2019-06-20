@@ -18,25 +18,26 @@ class EloquentTodo implements TodoInterface
 
   }
 
-  public function getById($id){
+
+  public function showAll($id){
     return $this->model->findById($id);
 
   }
 
-  public function create(array $attributes){
+  public function createAll(array $attributes){
     return $this->model->create($attributes);
 
   }
 
-  public function update($id, array $attributes){
+  public function updateAll($id, array $attributes){
     $todo = $this->model->findOrFail($id);
     $todo->update($attributes);
     return $todo;
   }
 
-  public function delete($id){
+  public function deleteAll($id){
 
-    $this->model->getById($id)->delete();
+    $this->model->findOrFail($id)->delete();
     return true;
   }
 }
