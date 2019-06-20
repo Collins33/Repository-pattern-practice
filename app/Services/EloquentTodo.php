@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 use App\Repository\TodoInterface;
+use App\Todo;
 
 class EloquentTodo implements TodoInterface
 {
